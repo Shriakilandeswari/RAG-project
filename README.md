@@ -1,86 +1,86 @@
-# RAG Chatbot using FAISS and Ollama
+RAG Chatbot using FAISS and Ollama
 
-This project implements a Retrieval Augmented Generation (RAG) system using:
+This project implements a Retrieval-Augmented Generation (RAG) system that allows a language model to answer questions using external documents. It combines:
 
-- FAISS for vector search
-- Ollama for LLM
-- LangChain for orchestration
+FAISS for vector search
 
-## Setup
+Ollama for LLM embeddings
 
-1. Clone repo
+LangChain for orchestration
 
-git clone https://github.com/username/rag-project.git
+Features
 
-2. Install dependencies
+PDF document ingestion
 
-pip install -r requirements.txt
+Text chunking for embeddings
 
-3. Build index
+Vector database search with FAISS
 
-python src/build_index.py
+Interactive chat interface
 
-4. Start chat
-
-python src/chat.py
-
-# RAG Chatbot using FAISS and Ollama
-
-This project implements a **Retrieval-Augmented Generation (RAG)** system that allows a language model to answer questions using external documents.
-
-## Features
-
-- Document chunking
-- Vector embeddings
-- FAISS vector search
-- Chat interface for querying documents
-
-## Project Structure
-
-- `src/` → core RAG logic
-- `data/` → source documents
-- `index/` → vector database
-- `main.py` → program entry point
-
-## Setup
+Project Structure
+rag-project/
+│
+├─ src/ # Core RAG logic (build_index.py, chat.py)
+├─ data/ # Source documents (PDFs)
+├─ index/ # FAISS vector database & pickled chunks
+└─ main.py # Program entry point with menu (build or chat)
+Setup
 
 Clone the repository
 
-```
 git clone https://github.com/yourusername/rag-project.git
 cd rag-project
-```
 
-Create virtual environment
+Create a virtual environment
 
-```
 python -m venv venv
-source venv/bin/activate
-```
+source venv/bin/activate # On Windows: venv\Scripts\activate
 
 Install dependencies
 
-```
 pip install -r requirements.txt
-```
 
-Build the index
+Build the index and/or start chat
 
-```
+Run the menu-based entry point:
+
 python main.py
-```
 
-## Technologies
+You will see options:
 
-- Python
-- FAISS
-- LangChain
-- Ollama
+1. Build Index
+2. Start Chat
 
-## Example
+Build Index → Reads PDFs, chunks text, generates embeddings, and saves FAISS index.
 
-Ask questions about the document:
+Start Chat → Loads the FAISS index and allows you to query the document interactively.
 
-```
+Example Usage
+
+After building the index, start the chat and ask questions like:
+
 What is GraphRAG?
-```
+Explain the key concepts in the document.
+
+The bot will return the most relevant text chunks from your PDFs.
+
+Notes
+
+Ensure the Ollama server is running locally on port 11434 for embeddings:
+
+ollama serve
+
+Index files and chunks are stored in the index/ folder.
+
+PDFs should be placed in the data/ folder.
+
+Technologies
+
+Python
+
+FAISS (Vector Search)
+
+LangChain (Orchestration)
+
+Ollama (Embeddings and LLM)
