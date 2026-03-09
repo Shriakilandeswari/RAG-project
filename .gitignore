@@ -1,0 +1,15 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.env
+venv/
+
+# FAISS index and chunks (can rebuild anytime)
+index/
+*.faiss
+*.pkl
+
+# Data
+data/
